@@ -128,7 +128,7 @@ extension ZooViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row >= viewModel.cellViewModels.count - 1 {
-//            viewModel.loadMoreIfNeeded()
+            viewModel.loadMoreIfNeeded()
         }
     }
 
