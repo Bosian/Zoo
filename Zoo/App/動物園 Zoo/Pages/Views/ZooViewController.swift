@@ -13,9 +13,10 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private var footerView: UIView!
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var topViewAfterScroll: UIView!
-    
+    @IBOutlet private weak var topView: UIView!
+    @IBOutlet private weak var topViewAfterScroll: UIView!
+    @IBOutlet private weak var stackViewTopConstraint: NSLayoutConstraint!
+
     let hud: JGProgressHUD = JGProgressHUD()
     var scrollView: UIScrollView? { return tableView }
     var refreshControl: UIRefreshControl!
@@ -46,16 +47,6 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
         setupNavigationBar()
 
         scrollViewDidScroll(tableView)
-    }
-
-    override func viewDidLayoutSubviews() {
-        adjustTableViewContentInset()
-
-        super.viewDidLayoutSubviews()
-    }
-
-    private func adjustTableViewContentInset() {
-        tableView.contentInset.top = topView.frame.size.height
     }
 
     private func setupNavigationBar() {
@@ -142,7 +133,15 @@ extension ZooViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        topView.alpha = min(1, abs(scrollView.contentOffset.y / scrollView.contentInset.top))
-        topViewAfterScroll.alpha = min(1, 1 - abs(scrollView.contentOffset.y / scrollView.contentInset.top))
+
+        let limit: CGFloat = topView.frame.size.height
+
+        topView.alpha = 1 - min(1, scrollView.contentOffset.y / limit)
+        topViewAfterScroll.alpha = min(1, scrollView.contentOffset.y / limit)
+
+        let initValue: CGFloat = -topViewAfterScroll.frame.size.height
+        stackViewTopConstraint.constant = min(initValue, max(-limit, -scrollView.contentOffset.y))
+        
+        tableView.isScrollEnabled = stackViewTopConstraint.constant > initValue
     }
 }
