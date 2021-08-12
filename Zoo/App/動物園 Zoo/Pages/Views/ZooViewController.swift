@@ -13,11 +13,13 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private var footerView: UIView!
+    @IBOutlet weak var topView: UIView!
+//    @IBOutlet weak var topViewAfterScroll: UIView!
     
     let hud: JGProgressHUD = JGProgressHUD()
     var scrollView: UIScrollView? { return tableView }
     var refreshControl: UIRefreshControl!
-    
+
     typealias ViewModelType = ZooViewModel
     var viewModel: ViewModelType! {
         didSet {
@@ -41,6 +43,30 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
         tableView.estimatedRowHeight = 80
 
         setupPullToRefresh(selector: #selector(refresh(sender:)))
+        setupNavigationBar()
+    }
+
+    override func viewDidLayoutSubviews() {
+        adjustTableViewContentInset()
+
+        super.viewDidLayoutSubviews()
+    }
+
+    private func adjustTableViewContentInset() {
+        tableView.contentInset.top = topView.frame.size.height
+    }
+
+    private func setupNavigationBar() {
+        
+        // iOS 13+
+//        let barAppearance =  UINavigationBarAppearance()
+//        barAppearance.configureWithTransparentBackground()
+//        navigationController?.navigationBar.standardAppearance = barAppearance
+
+        // iOS 12
+        let image: UIImage? = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = image
     }
 
     private func updateLoadMoreProgress() {
@@ -70,6 +96,22 @@ extension ZooViewController: PullToRefreshable {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         pullToRefreshScrollViewDidEndDragging(scrollView)
     }
+
+    func pullToRefreshScrollViewDidEndDragging(_ scrollView: UIScrollView) {
+
+        if !refreshControl.isRefreshing {
+            guard scrollView.contentOffset.y < -115 - topView.frame.size.height else {
+                return
+            }
+
+            refreshControl.beginRefreshing()
+            refreshControl.sendActions(for: .valueChanged)
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
+    }
 }
 
 extension ZooViewController: UITableViewDelegate, UITableViewDataSource
@@ -93,7 +135,7 @@ extension ZooViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row >= viewModel.cellViewModels.count - 1 {
-            viewModel.loadMoreIfNeeded()
+//            viewModel.loadMoreIfNeeded()
         }
     }
 }
