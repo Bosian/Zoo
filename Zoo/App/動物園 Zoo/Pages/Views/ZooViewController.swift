@@ -132,16 +132,29 @@ extension ZooViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
         }
     }
 
+    private var limit: CGFloat { topView.frame.size.height }
+    private var initValue: CGFloat { -topViewAfterScroll.frame.size.height }
+    private var ratio: CGFloat { 6 }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        let limit: CGFloat = topView.frame.size.height
+        let y: CGFloat = scrollView.contentOffset.y * ratio
 
-        topView.alpha = 1 - min(1, scrollView.contentOffset.y / limit)
-        topViewAfterScroll.alpha = min(1, scrollView.contentOffset.y / limit)
+        topView.alpha = 1 - min(1, y / limit)
+        topViewAfterScroll.alpha = min(1, y / limit)
 
-        let initValue: CGFloat = -topViewAfterScroll.frame.size.height
-        stackViewTopConstraint.constant = min(initValue, max(-limit, -scrollView.contentOffset.y))
+        stackViewTopConstraint.constant = min(initValue, max(-limit, -y))
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        let threshold: CGFloat = -limit / 2
         
-        tableView.isScrollEnabled = stackViewTopConstraint.constant > initValue
+        if stackViewTopConstraint.constant > threshold {
+            stackViewTopConstraint.constant = 0
+            scrollView.setContentOffset(CGPoint.zero, animated: false)
+        } else {
+            stackViewTopConstraint.constant = -limit
+        }
     }
 }

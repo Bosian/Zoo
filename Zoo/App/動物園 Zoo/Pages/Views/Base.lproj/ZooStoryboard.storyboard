@@ -40,26 +40,26 @@
                                 <rect key="frame" x="0.0" y="200" width="414" height="696"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epS-2j-1E8">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="動物園" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-uM-Aa7">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="42"/>
+                                                <rect key="frame" x="0.0" y="12" width="414" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="X2o-uM-Aa7" firstAttribute="top" secondItem="epS-2j-1E8" secondAttribute="top" id="Ll8-UG-fc1"/>
+                                            <constraint firstItem="X2o-uM-Aa7" firstAttribute="top" secondItem="epS-2j-1E8" secondAttribute="top" constant="12" id="Ll8-UG-fc1"/>
                                             <constraint firstItem="X2o-uM-Aa7" firstAttribute="leading" secondItem="epS-2j-1E8" secondAttribute="leading" id="UpB-y1-wE5"/>
-                                            <constraint firstAttribute="height" constant="50" id="Y0W-CR-IkO"/>
+                                            <constraint firstAttribute="height" constant="60" id="Y0W-CR-IkO"/>
                                             <constraint firstAttribute="trailing" secondItem="X2o-uM-Aa7" secondAttribute="trailing" id="bq7-SC-OPR"/>
-                                            <constraint firstAttribute="bottom" secondItem="X2o-uM-Aa7" secondAttribute="bottom" id="h7R-D1-Pmt"/>
+                                            <constraint firstAttribute="bottom" secondItem="X2o-uM-Aa7" secondAttribute="bottom" constant="12" id="h7R-D1-Pmt"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-jR-hkU">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="646"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="636"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="SIV-g6-Fm4">
                                             <rect key="frame" x="0.0" y="129.00000034679067" width="414" height="57"/>
