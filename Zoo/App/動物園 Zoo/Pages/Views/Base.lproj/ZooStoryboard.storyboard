@@ -36,6 +36,25 @@
                                     <constraint firstAttribute="height" constant="200" id="eap-eF-N8M"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epS-2j-1E8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="動物園" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-uM-Aa7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="42"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28830873969999998" green="0.75485479830000002" blue="0.3799193501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="X2o-uM-Aa7" firstAttribute="top" secondItem="epS-2j-1E8" secondAttribute="top" id="Ll8-UG-fc1"/>
+                                    <constraint firstItem="X2o-uM-Aa7" firstAttribute="leading" secondItem="epS-2j-1E8" secondAttribute="leading" id="UpB-y1-wE5"/>
+                                    <constraint firstAttribute="height" constant="50" id="Y0W-CR-IkO"/>
+                                    <constraint firstAttribute="trailing" secondItem="X2o-uM-Aa7" secondAttribute="trailing" id="bq7-SC-OPR"/>
+                                    <constraint firstAttribute="bottom" secondItem="X2o-uM-Aa7" secondAttribute="bottom" id="h7R-D1-Pmt"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-jR-hkU">
                                 <rect key="frame" x="0.0" y="254" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,12 +163,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pmd-jR-hkU" secondAttribute="trailing" id="6QT-dP-vai"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="epS-2j-1E8" secondAttribute="trailing" id="CCY-sp-T5g"/>
                             <constraint firstItem="Pmd-jR-hkU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cem-dZ-i67"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X2D-xr-dRk" secondAttribute="trailing" id="QrE-6I-gNf"/>
                             <constraint firstItem="Pmd-jR-hkU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eal-ya-qDu"/>
                             <constraint firstItem="X2D-xr-dRk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mr5-I3-J34"/>
+                            <constraint firstItem="epS-2j-1E8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nCd-z8-lfu"/>
                             <constraint firstItem="X2D-xr-dRk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qGE-Gz-zOi"/>
                             <constraint firstAttribute="bottom" secondItem="Pmd-jR-hkU" secondAttribute="bottom" id="sXx-pE-1BY"/>
+                            <constraint firstItem="epS-2j-1E8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="znr-Kx-9kF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BE6-JC-H1O"/>
@@ -159,6 +181,7 @@
                         <outlet property="indicator" destination="laj-WL-I6l" id="BPd-oJ-irQ"/>
                         <outlet property="tableView" destination="Pmd-jR-hkU" id="aLo-fa-esA"/>
                         <outlet property="topView" destination="X2D-xr-dRk" id="oGA-zl-MUT"/>
+                        <outlet property="topViewAfterScroll" destination="epS-2j-1E8" id="m32-5y-8lG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -169,6 +192,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

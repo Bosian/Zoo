@@ -14,7 +14,7 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private var footerView: UIView!
     @IBOutlet weak var topView: UIView!
-//    @IBOutlet weak var topViewAfterScroll: UIView!
+    @IBOutlet weak var topViewAfterScroll: UIView!
     
     let hud: JGProgressHUD = JGProgressHUD()
     var scrollView: UIScrollView? { return tableView }
@@ -44,6 +44,8 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
 
         setupPullToRefresh(selector: #selector(refresh(sender:)))
         setupNavigationBar()
+
+        scrollViewDidScroll(tableView)
     }
 
     override func viewDidLayoutSubviews() {
@@ -114,7 +116,7 @@ extension ZooViewController: PullToRefreshable {
     }
 }
 
-extension ZooViewController: UITableViewDelegate, UITableViewDataSource
+extension ZooViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate
 {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -137,5 +139,10 @@ extension ZooViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.row >= viewModel.cellViewModels.count - 1 {
 //            viewModel.loadMoreIfNeeded()
         }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        topView.alpha = min(1, abs(scrollView.contentOffset.y / scrollView.contentInset.top))
+        topViewAfterScroll.alpha = min(1, 1 - abs(scrollView.contentOffset.y / scrollView.contentInset.top))
     }
 }
