@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--動物園-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ZooViewController" customModule="Zoo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9U-BF-lDl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="exm-Ms-laF">
+                                    <rect key="frame" x="0.0" y="129.00000034679067" width="414" height="57"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="y3M-Ty-D0e">
+                                            <rect key="frame" x="188.5" y="10" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="37" id="ESA-eC-ixL"/>
+                                                <constraint firstAttribute="width" constant="37" id="zLX-e8-Ydg"/>
+                                            </constraints>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="y3M-Ty-D0e" firstAttribute="centerY" secondItem="exm-Ms-laF" secondAttribute="centerY" id="aNy-ZP-pcL"/>
+                                        <constraint firstItem="y3M-Ty-D0e" firstAttribute="centerX" secondItem="exm-Ms-laF" secondAttribute="centerX" id="uOy-Uh-Stg"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ZooLabelCellViewModel" rowHeight="80" id="zai-VO-NX9" customClass="ZooLabelCell" customModule="Zoo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zai-VO-NX9" id="6wo-Xo-mix">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="NjD-xg-Hde">
+                                                    <rect key="frame" x="12" y="8" width="390" height="64"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7lj-Xl-Gqp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="09j-G2-pjh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="09j-G2-pjh" secondAttribute="height" multiplier="1:1" id="ikb-FH-XpE"/>
+                                                                        <constraint firstAttribute="width" constant="64" id="wjA-wm-aQk"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M13-zc-Xy6">
+                                                            <rect key="frame" x="76" y="0.0" width="314" height="64"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ipr-Sf-YB4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="64"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qkn-DW-pPj">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="314" height="28"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活期存款帳戶" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIC-wQ-C5D">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="28"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活期存款帳戶" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBs-K2-Yvi">
+                                                                                    <rect key="frame" x="157" y="0.0" width="157" height="28"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="YCa-RU-nBI"/>
+                                                                            </constraints>
+                                                                        </stackView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="001035018634" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzO-Wk-lG4">
+                                                                            <rect key="frame" x="0.0" y="36" width="314" height="28"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="Hsr-vE-Vp5"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="NjD-xg-Hde" secondAttribute="bottom" constant="8" id="Fq3-uE-2q2"/>
+                                                <constraint firstAttribute="trailing" secondItem="NjD-xg-Hde" secondAttribute="trailing" constant="12" id="RMW-ht-3K6"/>
+                                                <constraint firstItem="NjD-xg-Hde" firstAttribute="leading" secondItem="6wo-Xo-mix" secondAttribute="leading" constant="12" id="SqK-59-a0o"/>
+                                                <constraint firstItem="NjD-xg-Hde" firstAttribute="top" secondItem="6wo-Xo-mix" secondAttribute="top" constant="8" id="VTJ-w3-N4s"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="feature" destination="RzO-Wk-lG4" id="MKz-Ni-ysn"/>
+                                            <outlet property="icon" destination="09j-G2-pjh" id="mkZ-SP-J8O"/>
+                                            <outlet property="location" destination="iBs-K2-Yvi" id="YYv-bu-N3A"/>
+                                            <outlet property="name" destination="zIC-wQ-C5D" id="Yvq-aa-iKO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5et-nr-ao2"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kiZ-Ve-TgN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i9U-BF-lDl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Alh-ev-DNZ"/>
+                            <constraint firstAttribute="bottom" secondItem="i9U-BF-lDl" secondAttribute="bottom" id="Pcf-vI-1hH"/>
+                            <constraint firstItem="i9U-BF-lDl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SGu-pX-evD"/>
+                            <constraint firstItem="i9U-BF-lDl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eH2-Vr-ESN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="動物園" id="BE6-JC-H1O"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="footerView" destination="exm-Ms-laF" id="qyh-8k-DB3"/>
+                        <outlet property="indicator" destination="y3M-Ty-D0e" id="CYZ-qJ-mgn"/>
+                        <outlet property="tableView" destination="i9U-BF-lDl" id="B0q-TO-1ai"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113.04347826086958" y="116.51785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
