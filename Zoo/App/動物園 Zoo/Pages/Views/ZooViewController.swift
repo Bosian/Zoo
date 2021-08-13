@@ -41,7 +41,7 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
         viewModel = ViewModelType(binder: self, navigationParameter: navigationParameter)
 
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
+        tableView.estimatedRowHeight = 108.5
 
         setupPullToRefresh(selector: #selector(refresh(sender:)))
         setupNavigationBar()
