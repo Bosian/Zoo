@@ -49,6 +49,13 @@ final class ZooViewController: BaseViewController, Viewer, Navigatable, Progress
         scrollViewDidScroll(tableView)
     }
 
+    override func viewDidLayoutSubviews() {
+
+        tableView.contentInset.bottom = self.view.safeAreaInsets.bottom
+
+        super.viewDidLayoutSubviews()
+    }
+
     private func setupNavigationBar() {
         
         // iOS 13+
