@@ -139,7 +139,8 @@ extension ZooViewController: UITableViewDelegate, UITableViewDataSource, UIScrol
         }
     }
 
-    private var limit: CGFloat { topView.frame.size.height }
+    private var topSafeAreaWithoutNavigationBarValue: CGFloat { self.view.safeAreaInsets.top - (navigationController?.navigationBar.frame.size.height ?? CGFloat.zero) }
+    private var limit: CGFloat { topView.frame.size.height - topSafeAreaWithoutNavigationBarValue }
     private var initValue: CGFloat { -topViewAfterScroll.frame.size.height }
     private var ratio: CGFloat { 6 }
     
