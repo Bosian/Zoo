@@ -43,7 +43,7 @@ struct ZooViewModel: Refreshable, MutatingClosure, Updateable {
 
         clear()
         
-        loadMOre() {
+        loadMore() {
 
             copySelf.mutating { (mutatingSelf: inout ZooViewModel) in
                 mutatingSelf.isDataLoaded = true
@@ -71,11 +71,11 @@ struct ZooViewModel: Refreshable, MutatingClosure, Updateable {
         }
 
         mutating { (mutatingSelf: inout ZooViewModel) in
-            mutatingSelf.loadMOre(callback: callback)
+            mutatingSelf.loadMore(callback: callback)
         }
     }
     
-    private mutating func loadMOre(callback: (() -> Void)?) {
+    private mutating func loadMore(callback: (() -> Void)?) {
         loadMore(offset: offset, callback: callback)
         offset += limit
     }
